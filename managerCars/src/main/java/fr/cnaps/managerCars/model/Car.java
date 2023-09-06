@@ -1,9 +1,21 @@
 package fr.cnaps.managerCars.model;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+@Entity
+@Table
 public class Car {
+    @Id
     private int id;
+    @Column(name = "brand")
     private String brand;
-    private String modele;
+    @Column
+    private String model;
+    @Column
     private String color;
+
 
     public int getId() {
         return id;
@@ -21,12 +33,12 @@ public class Car {
         this.brand = brand;
     }
 
-    public String getModele() {
-        return modele;
+    public String getModel() {
+        return model;
     }
 
-    public void setModele(String modele) {
-        this.modele = modele;
+    public void setModel(String model) {
+        this.model = model;
     }
 
     public String getColor() {
@@ -40,10 +52,10 @@ public class Car {
     public Car() {
         this.id = 1;
     }
-    public Car (int id,String brand,String modele,String color){
+    public Car (int id,String brand,String model,String color){
         this.id = id;
         this.brand = brand;
-        this.modele = modele;
+        this.model = model;
         this.color = color;
     }
 

@@ -8,8 +8,15 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+/**
+ * service est l'intelligence du programme permet de mettre en lien les differentes methodes
+ * c'est aussi un bean avec bean
+ */
 @Service
 public class CarsService {
+    /**
+     * autowired permet injecter l'instanciation pour que le repository soit lu
+     */
     @Autowired
     CarsRepository cr;
     public List<Car> getAllCars(){
@@ -25,7 +32,14 @@ public class CarsService {
         }
         return null;
     }
-//    public getCarsById(){
-//
+    public List<Car> createCar(Car car){
+      cr.cars.add(car);
+      return cr.cars;
+    }
+    public Car deleteCar(int id){
+       return cr.deleteCar(id);
+    }
+//    public List<Car> modifyCar(Car car,id){
+//        return cr.cars
 //    }
 }

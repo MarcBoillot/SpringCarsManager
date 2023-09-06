@@ -6,6 +6,11 @@ import fr.cnaps.managerCars.model.Car;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
+/**
+ * j'implements commanlinerunner pour le run
+ * CarsRepository reference toutes les voitures
+ * component est un bean permettant a bean de le voir
+ */
 @Component
 public class CarsRepository implements CommandLineRunner {
     public List<Car> cars;
@@ -21,13 +26,30 @@ public class CarsRepository implements CommandLineRunner {
     public Car CarsById(int id){
         return cars.get(id);
     }
+
+    public Car deleteCar(int id){
+        Car deletedCar = CarsById(id);
+        cars.remove(id);
+        return deletedCar;
+    }
+    public Car modifyCar(Car car,int id){
+        Car modifiedCar = CarsById(id);
+        return modifiedCar;
+    }
+    /**
+     * lors du lancement du programme le methode definyCars() est lancée la list est créée
+     * @param args
+     * @throws Exception
+     */
     @Override
     public void run(String... args) throws Exception {
         definyCars();
     }
-//    public UpdateCars(){
-//
-//    }
+
+    /**
+     * dans l'objet cars implemente un tableau de plusieurs voitures
+     * @return
+     */
     public List<Car> definyCars(){
 
         List<Car>cars = new ArrayList<>();
