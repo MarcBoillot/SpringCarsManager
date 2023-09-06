@@ -38,10 +38,13 @@ public class Car {
     }
 
     public Car() {
-
+        this.id = 1;
     }
     public Car (int id,String brand,String modele,String color){
-
+        this.id = id;
+        this.brand = brand;
+        this.modele = modele;
+        this.color = color;
     }
 
 }
